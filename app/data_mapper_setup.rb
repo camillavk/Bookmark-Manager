@@ -8,4 +8,4 @@ require './lib/link' # this needs to be done after datamapper is initialised
 DataMapper.finalize
 
 #However, the database tables don't exist yet. Let's tell datamapper to create them
-DataMapper.auto_upgrade!
+# DataMapper.auto_upgrade!
