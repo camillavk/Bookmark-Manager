@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bookmark Manager</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<% if current_user %>
+	Welcome, <%= current_user.email %>
+	<% end %>
+  <%= yield %>
+ </body>
+ </html>
