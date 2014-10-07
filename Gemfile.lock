@@ -111,6 +111,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  rack
   rack-flash3
   rspec
   shotgun
