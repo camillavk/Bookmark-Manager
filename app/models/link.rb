@@ -13,4 +13,3 @@ class Link
 	property :url,		String
 
 end
-

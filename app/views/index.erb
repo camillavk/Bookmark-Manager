@@ -1,5 +1,6 @@
 <h1>Welcome to the bookmark manager</h1>
 
+<p>Current links:</p>
 <ul>
 	<% @links.each do |link| %>
 		<li><a href="<%= link.url %>"><%= link.title %></a></li>
