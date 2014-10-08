@@ -1,7 +1,7 @@
 <p>Current links:</p>
-<ul>
+<ul id='links'>
 	<% @links.each do |link| %>
-		<li><a href="<%= link.url %>"><%= link.title %></a></li>
+		<%= partial :link, :locals => {:link => link} %>
 	<% end %>
 </ul>
 

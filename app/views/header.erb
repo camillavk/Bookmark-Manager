@@ -2,7 +2,7 @@
 	<div id="logo">
 		<a href="/">Bookmarks</a>
 	</div>
-	<a href="/links/new" class="button hightlighted">Add link</a>
+	<a href="/links/new" class='button'>Add link</a>
 	<div id="user-links">
 		<% if current_user %>
 			<span id="welcome-message">
@@ -11,7 +11,7 @@
 
 			<form id="sign-up" method="post" action="/sessions">
 				<input type="hidden" name="_method" value="delete">
-				<input type="submit" value="Sign out">
+				<input type="submit" value="Sign out" class='button'>
 			</form>
 
 		<% else %>

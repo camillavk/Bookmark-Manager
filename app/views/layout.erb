@@ -7,8 +7,16 @@
 	<link rel="stylesheet" type="text/css" href="/css/applications.css">
 </head>
 <body>
-	<%= partial :header %>
-	<%= partial :flash %>	
-  <%= yield %>
+	<div class="wrapper">
+		<%= partial :header %>
+		<%= partial :flash %>	
+		<div id='container'>
+	  	<%= yield %>
+	  </div>
+	</div>
+	<div class="push"></div>
+	<div class="footer">
+	  <%= partial :footer %>
+	</div>
  </body>
  </html>
