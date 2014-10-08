@@ -1,47 +1,66 @@
 require 'spec_helper'
 require_relative 'helpers/session'
+# require_relative './app/models/mailer'
 
 include SessionHelpers
 
 feature "User forgets password" do 
 
 	before(:each) do 
-		User.create(:email => "test@test.com",
+		@user = User.create(:email => "test@test.com",
 								:password => "test",
 								:password_confirmation => "test")
 	end
 
-	scenario "password link exists" do 
+	scenario "link exists" do 
 		visit '/sessions/new'
 		expect(page).to have_content("Forgotten password?")
 	end
 
-	scenario "password link directs to page with form" do 
+	scenario "link directs to page with form" do 
 		visit '/sessions/new'
 		click_link "Forgotten password?"
 		expect(current_path).to eq('/users/reset_password')
 	end
 
-	scenario "password reset page contains form for email" do 
+	scenario "and password reset page contains form for email" do 
 		visit '/sessions/new'
 		click_link "Forgotten password?"
 		expect(current_path).to eq('/users/reset_password')
 		expect(page).to have_content("Please enter your email address")
 	end
 
-	# scenario "entering email shows you a notice" do 
-	# 	visit '/users/reset_password'
-	# 	enter_email('test@test.com')
-
-	# 	# expect(current_path).to eq('/users/users/reset_password')
-	# 	expect(page).to have_content("Your new password has been sent to your inbox")
-	# end
-
-	scenario "enters an email" do 
+	scenario "and enters an email" do 
 		visit '/users/reset_password'
 		enter_email('test@test.com')
 		expect(page).to have_content("Your new password has been sent to your inbox")
 		expect(current_path).to eq('/')
 	end
+
+	scenario "and a reset email is sent" do 
+		visit '/users/reset_password'
+		expect(Mailer).to receive(:send_email).with(@user)
+		enter_email('test@test.com')
+	end 
+
+	scenario "and the token is saved in the db" do 
+		visit '/users/reset_password'
+		expect(Mailer).to receive(:create_token)
+		expect(User.first.email).to eq('test@test.com')
+		expect(User.first.password_token).to eq('test@test.com')
+		enter_email('test@test.com')
+	end
+
+  # scenario 'fills out reset form' do
+  #   token = send_email(user)
+  #   new_password = 'newpassword!'
+  #   new_password_confirmation = 'newpassword!'
+  #   visit '/users/reset_password(:token => token)'
+  #   fill_in :password, :with => params[:new_password]
+  #   fill_in :password_confirmation, :with => params[:new_password_confirmation]
+  #   click_button 'Change my password'
+  #   expect(page).to have_content('Your password was changed successfully. You are now signed in.')
+  # end
+
 
 end
