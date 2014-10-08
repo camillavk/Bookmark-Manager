@@ -12,9 +12,13 @@ post '/users/reset_password' do
 			:token_time_stamp => create_time_stamp)
 		send_email(user)
 		flash[:notice] = "Your new password has been sent to your inbox"
-		redirect to('/')
+	else
+		flash[:notice] = "Sorry, we don't recognise your email address"
 	end
+	redirect to('/')
 end
+
+
 
 
 

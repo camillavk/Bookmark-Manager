@@ -41,6 +41,7 @@ feature "User forgets password" do
 		visit '/users/reset_password'
 		enter_email('test@test.com')
 		expect(page).to have_content("Your new password has been sent to your inbox")
+		expect(current_path).to eq('/')
 	end
 
 end

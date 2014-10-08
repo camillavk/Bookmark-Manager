@@ -19,7 +19,7 @@ module SessionHelpers
 	end
 
 	def enter_email(email = "test@test.com")
-		# visit '/users/reset_password'
+		visit '/users/reset_password'
 		fill_in :email, :with => email
 		click_button "Reset Password"
 	end
