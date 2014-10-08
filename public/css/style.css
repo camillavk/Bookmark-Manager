@@ -99,11 +99,16 @@ div {
 }
 
   .link {
-    background: #3498db;
+    height: auto;
+    background: #2182A3;
+    width: auto;
     box-shadow: 0 0 5px rgba(0,0,0,0.4);
     margin: 15px inherit;
     border: 2px solid white;
     color: #ffffff;
+    border-radius: 4px;
+    margin-left: 7px;
+    margin-right: 7px;
     font-size: 1em;
     padding: 15px 10px;
     text-decoration: none;
@@ -112,21 +117,15 @@ div {
   .link a.title {
     letter-spacing: 1px;
     font-size: 2em;
-   /* background: #3498db;*/
-    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-    background-image: -o-linear-gradient(top, #3498db, #2980b9);
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    background-color: #001A4C;
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
-    border-radius: 28px;
-    font-family: Arial;
+    border-radius: 4px;
+    border: 2px solid white;
     color: #ffffff;
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-    padding: 10px 20px 10px 20px;
   }
 
   .link a.title:hover {
@@ -168,6 +167,10 @@ div {
 
 h1 {
   font-size: 2em;
+}
+
+ul {
+  list-style-type: none;
 }
 
 form {
