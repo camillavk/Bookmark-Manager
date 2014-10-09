@@ -44,11 +44,11 @@ feature "User forgets password" do
 	end 
 
 	scenario "and the token is saved in the db" do 
-		visit '/users/reset_password'
-		expect(Mailer).to receive(:create_token)
-		expect(User.first.email).to eq('test@test.com')
-		expect(User.first.password_token).to eq('test@test.com')
-		enter_email('test@test.com')
+		# enter_email('test@test.com')
+		# expect(Mailer).to receive(:create_token)
+		enter_email
+		user = User.first(email: 'test@test.com' )
+		expect(user.password_token).to eq('test@test.com')
 	end
 
   # scenario 'fills out reset form' do
