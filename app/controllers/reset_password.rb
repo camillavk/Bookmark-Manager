@@ -6,11 +6,11 @@ post '/users/reset_password' do
 	email = params[:email]
 	user = User.first(:email => email)
 	if user
-		# token = Mailer.create_token
+		token = Mailer.create_token
 		# user.password_token = email,
 		# user.token_time_stamp = Mailer.create_time_stamp
 		# user.save
-		user.password_token = email
+		user.password_token = token
 		user.token_time_stamp = Mailer.create_time_stamp
 		# user.save(:password_token => email,
 		# 						:token_time_stamp => Mailer.create_time_stamp)
@@ -27,7 +27,7 @@ end
 
 get '/users/reset_password/:token' do
 	user = User.first(:password_token => :password_token)
-	raise user
+	# raise user
 	erb :"users/new_password"
 end
 

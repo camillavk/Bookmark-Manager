@@ -1,6 +1,15 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature "User adds a new link" do 
+
+	before(:each) do 
+		User.create(:email => "test@test.com",
+								:password => "test",
+								:password_confirmation => "test")
+	end
 
 	scenario "when browsing the homepage" do 
 		expect(Link.count).to eq(0)
@@ -20,6 +29,16 @@ feature "User adds a new link" do
 		link = Link.first
 		expect(link.tags.map(&:text)).to include("education")
 		expect(link.tags.map(&:text)).to include("ruby")
+	end
+
+	scenario "and it saves them as the author" do 
+		visit '/'
+		sign_in('test@test.com', 'test')
+		add_link("http://www.google.com/",
+						"Google",
+						['search'])
+		link = Link.first
+		expect(link.user).to eq("3")
 	end
 
 	def add_link(url, title, tags = [])

@@ -145,6 +145,7 @@ div {
   .link .source {
     float: right;
     font-size: 0.7em;
+    margin: auto inherit;
   }
 
 .flash {

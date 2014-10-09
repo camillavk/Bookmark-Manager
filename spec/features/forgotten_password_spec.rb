@@ -1,6 +1,5 @@
 require 'spec_helper'
 require_relative 'helpers/session'
-# require_relative './app/models/mailer'
 
 include SessionHelpers
 
@@ -43,24 +42,10 @@ feature "User forgets password" do
 		enter_email('test@test.com')
 	end 
 
-	scenario "and the token is saved in the db" do 
-		# enter_email('test@test.com')
-		# expect(Mailer).to receive(:create_token)
-		enter_email
-		user = User.first(email: 'test@test.com' )
-		expect(user.password_token).to eq('test@test.com')
-	end
-
-  # scenario 'fills out reset form' do
-  #   token = send_email(user)
-  #   new_password = 'newpassword!'
-  #   new_password_confirmation = 'newpassword!'
-  #   visit '/users/reset_password(:token => token)'
-  #   fill_in :password, :with => params[:new_password]
-  #   fill_in :password_confirmation, :with => params[:new_password_confirmation]
-  #   click_button 'Change my password'
-  #   expect(page).to have_content('Your password was changed successfully. You are now signed in.')
-  # end
-
+	# scenario "and the token is saved in the db" do 
+	# 	enter_email
+	# 	user = User.first(email: 'test@test.com' )
+	# 	expect(user.password_token).to eq('test@test.com')
+	# end
 
 end

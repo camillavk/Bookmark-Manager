@@ -1,10 +1,14 @@
 <li class='link'>
 	<a class='title' href="<%= link.url %>"><%= link.title %></a>
 	<div class='description'>
-	blah blah blah
+		<p><%= link.description %>
 	</div>
 	<span class="source">
-		added yesterday by
-		<a href="#">camillavk@gmail.com</a>
+		added by
+		<% if link.user %>
+			<a href="<%= link.user %>"><%= link.user %></a>
+		<% else %>
+		Anonymous
+		<% end %>
 	</span>
 </li>
