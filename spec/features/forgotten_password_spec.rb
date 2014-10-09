@@ -44,10 +44,10 @@ feature "User forgets password" do
 	end 
 
 
-	# scenario "and the token is saved in the db" do 
-	# 	enter_email
-	# 	user = User.first(email: 'test@test.com' )
-	# 	expect(user.password_token).to eq('test@test.com')
-	# end
+	scenario "and the token is saved in the db" do 
+		enter_email
+		user = User.first(email: 'test@test.com' )
+		expect(user.password_token.nil?).to eq(false)
+	end
 
 end
