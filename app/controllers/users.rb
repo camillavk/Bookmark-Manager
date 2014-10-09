@@ -8,7 +8,8 @@ get '/users/new' do
 end
 
 post '/users' do 
-	@user = User.new(:email => params[:email],
+	@user = User.new(:name => params[:name],
+							:email => params[:email],
 							:password => params[:password],
 							:password_confirmation => params[:password_confirmation])
 	if @user.save

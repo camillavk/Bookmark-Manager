@@ -6,7 +6,8 @@ include SessionHelpers
 feature "User adds a new link" do 
 
 	before(:each) do 
-		User.create(:email => "test@test.com",
+		User.create(:name => "test",
+								:email => "test@test.com",
 								:password => "test",
 								:password_confirmation => "test")
 	end

@@ -33,8 +33,16 @@ end
 
 post '/users/new_password' do 
 	user = User.first(:password_token => :password_token)
+	p params[:new_password]
+	p params[:new_password_confirmation]
+	if 
+		params[:new_password] == params[:new_password_confirmation]
 	user = User.update(:password => params[:new_password],
 							:password_confirmation => params[:new_password_confirmation])
+	else
+		flash[:notice] = "Your passwords did't match...please start again"
+		redirect to('/')
+	end
 	flash[:notice] = "Your new password has been saved"
 	redirect to('/sessions/new')
 end

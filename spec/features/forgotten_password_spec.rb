@@ -6,7 +6,8 @@ include SessionHelpers
 feature "User forgets password" do 
 
 	before(:each) do 
-		@user = User.create(:email => "test@test.com",
+		@user = User.create(:name => 'test',
+								:email => "test@test.com",
 								:password => "test",
 								:password_confirmation => "test")
 	end
@@ -41,6 +42,7 @@ feature "User forgets password" do
 		expect(Mailer).to receive(:send_email).with(@user)
 		enter_email('test@test.com')
 	end 
+
 
 	# scenario "and the token is saved in the db" do 
 	# 	enter_email
