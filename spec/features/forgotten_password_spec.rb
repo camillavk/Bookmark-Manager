@@ -39,7 +39,7 @@ feature "User forgets password" do
 
 	scenario "and a reset email is sent" do 
 		visit '/users/reset_password'
-		expect(Mailer).to receive(:send_email).with(@user)
+		expect(Mailer).to receive(:send_reset_email).with(@user)
 		enter_email('test@test.com')
 	end 
 

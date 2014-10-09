@@ -14,6 +14,7 @@ post '/users' do
 							:password_confirmation => params[:password_confirmation])
 	if @user.save
 		session[:user_id] = @user.id
+		Mailer.send_welcome_email(@user)
 		redirect to('/')
 	else
 		flash.now[:errors] = @user.errors.full_messages

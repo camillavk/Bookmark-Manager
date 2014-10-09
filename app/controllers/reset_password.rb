@@ -17,7 +17,7 @@ post '/users/reset_password' do
 
 		user.save
 
-		Mailer.send_email(user)
+		Mailer.send_reset_email(user)
 		flash[:notice] = "Your new password has been sent to your inbox"
 	else
 		flash[:notice] = "Sorry, we don't recognise your email address"
