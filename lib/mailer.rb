@@ -14,7 +14,7 @@ class Mailer
     :from => "Bookmark Manager <bookmarks@email.com>",
     :to => user.email,
     :subject => "Password Reset",
-    :text => "Hi, #{user.name}.\nYou requested a password reset. Please click on the link to reset your password.\nChange my password: http://localhost:9292/users/reset_password/#{user.password_token}.\nIf you did not request a password reset please ignore this message.\nKind regards"
+    :text => "Hi, #{user.name}.\nYou requested a password reset. Please click on the link to reset your password.\nChange my password: http://camillabookmarks.herokuapp.com/users/reset_password/#{user.password_token}.\nIf you did not request a password reset please ignore this message.\nKind regards"
   end
 
   def self.send_welcome_email(user)

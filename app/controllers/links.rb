@@ -7,11 +7,11 @@ post '/links' do
 	tags = params["tags"].split(" ").map{|tag| Tag.first_or_create(:text => tag)}
 	description = params["description"].to_s
 	if user
-		user = session[:user_id]
+		@user = session[:user_name]
 	else
-		user = nil
+		@user = nil
 	end
-	Link.create(:url => url, :title => title, :tags => tags, :description => description, :user => user)
+	Link.create(:url => url, :title => title, :tags => tags, :description => description, :user => @user)
 	redirect to('/')
 end
 
