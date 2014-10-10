@@ -4,11 +4,11 @@
 		<p><%= link.description %>
 	</div>
 	<span class="source">
-		added by
-		<% if link.user %>
-			<a href="<%= link.user %>"><%= link.user %></a>
+		<!-- added by
+		<% if session[:user_name] %>
+			<%= @user.name %>
 		<% else %>
-		Anonymous
-		<% end %>
+			Anonymous
+		<% end %> -->
 	</span>
 </li>

@@ -18,6 +18,6 @@ class Link
 			:presence => "It's hard to bookmark a page without a URL!"
 		}
 	property :description, 	Text
-	property :user,					String
+	# property :user,					String
 
 end
